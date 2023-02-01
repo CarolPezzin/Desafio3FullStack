@@ -2,10 +2,10 @@ import { Request, Response } from "express";
 import { IUserRequest } from "../interfaces/users.interfaces";
 import { createUserService } from "../services/user.services";
 
-const createUserController = (req: Request, res: Response) => {
+const createUserController = async (req: Request, res: Response) => {
     try{
         const user: IUserRequest = req.body
-        const createUser = createUserService(user)
+        const createUser = await createUserService(user)
         return res.json(createUser)
     }catch (error) {
         if(error instanceof Error){

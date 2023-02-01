@@ -20,7 +20,7 @@ class User {
     fone: string
 
     @Column()
-    isActive: boolean
+    isActive: boolean = true
 
     @Column()
     isAdm: boolean

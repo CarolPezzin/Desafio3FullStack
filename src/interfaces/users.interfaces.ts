@@ -3,7 +3,7 @@ export interface IUserRequest {
     email: string
     password: string
     fone: string
-    isActive: boolean
+    isActive: true
     isAdm: boolean
 }
 

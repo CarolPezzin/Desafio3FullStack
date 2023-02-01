@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { IUserRequest } from "../interfaces/users.interfaces";
-import { createUserService } from "../services/user.services";
+import { createUserService, listUserService } from "../services/user.services";
 
 const createUserController = async (req: Request, res: Response) => {
     try{
@@ -17,4 +17,9 @@ const createUserController = async (req: Request, res: Response) => {
 
 }
 
-export { createUserController }
+const listUserConstroller = async( req: Request, res: Response) => {
+    const users = await listUserService()
+    return res.json(users)
+}
+
+export { createUserController, listUserConstroller }

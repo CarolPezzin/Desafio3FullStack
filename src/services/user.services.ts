@@ -25,3 +25,9 @@ export const createUserService = async ({
   await userRepository.save(user)
   return user
 };
+
+export const listUserService = async(): Promise<User[]> => {
+    const userRepository = AppDataSource.getRepository(User)
+    const users = await userRepository.find()
+    return users
+}

@@ -20,7 +20,8 @@ const createSessionService = async ({email, password}: ISessionRequest) => {
     }
 
     const token = jwt.sign({
-            isAdm: user.isAdm
+            isAdm: user.isAdm,
+            user: user.email
         },
         process.env.SECRET_KEY as string,
         {
@@ -28,8 +29,10 @@ const createSessionService = async ({email, password}: ISessionRequest) => {
             subject: user.id
         }
     )
-
-    return token
+        
+    const ret = {token, user}
+    
+    return ret
 }
 
 export default createSessionService
